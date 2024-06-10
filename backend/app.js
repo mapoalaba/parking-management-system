@@ -17,6 +17,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/villas', require('./routes/villaRoutes'));
 app.use('/api/parking', require('./routes/parkingRoutes'));
+app.use('/api/test', require('./routes/testRoutes')); // 테스트용
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
