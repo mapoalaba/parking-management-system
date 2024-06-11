@@ -1,5 +1,5 @@
-# Use an official Node runtime as a parent image
-FROM node:14
+# Use a specific Node.js version that supports ES2020
+FROM node:16
 
 # Set the working directory
 WORKDIR /usr/src/app
@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies, including nodemon globally
-RUN npm install && npm install -g nodemon
+# Install dependencies
+RUN npm install
 
 # Copy the rest of the application
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3001
 
 # Start the application
-CMD ["nodemon", "app.js"]
+CMD ["npm", "run", "dev"]

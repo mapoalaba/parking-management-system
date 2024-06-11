@@ -10,8 +10,14 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
+# Fix permissions for react-scripts and all node modules
+RUN chmod -R 755 /usr/src/app/node_modules/.bin/*
+
 # Copy the rest of the application
 COPY . .
+
+# Fix permissions for the entire app directory
+RUN chmod -R 755 /usr/src/app
 
 # Expose the port the app runs on
 EXPOSE 3000
